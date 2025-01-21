@@ -20,19 +20,25 @@ public class SentimentService:ISentimentService
 
         try
         {
-            _logger.LogInformation("Analyzing sentiment for text: {TextLength} chars", request.Text.Length);
+            _logger.LogInformation("Sending request to ML service for text: {TextStart}...", 
+                request.Text[..Math.Min(50, request.Text.Length)]);
             
-
             var response = await client.PostAsJsonAsync("/analyze", request);
-            response.EnsureSuccessStatusCode();
             
+            if (!response.IsSuccessStatusCode)
+            {
+                _logger.LogError("ML service returned status code: {StatusCode}", response.StatusCode);
+                throw new Exception($"ML service error: {response.StatusCode}");
+            }
+
             return await response.Content.ReadFromJsonAsync<SentimentResponse>()
                 ?? throw new Exception("Failed to deserialize response");
+
         }
-        catch (Exception)
+        catch (Exception ex)
         {
-            // Temporary fallback until Python service is ready
-            return new SentimentResponse(request.Text, "Positive", 0.8);
+             _logger.LogError(ex, "Error processing sentiment analysis");
+            throw;
         }
 
     }

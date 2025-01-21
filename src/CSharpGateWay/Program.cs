@@ -42,7 +42,7 @@ app.MapPost("/sentiment", async (ISentimentService sentimentService, SentimentRe
         var result = await sentimentService.AnalyzeSentimentAsync(request);
         return Results.Ok(result);
     }
-    catch (Exception ex)
+    catch (Exception)
     {
         return Results.Problem("An internal error occurred");
     }

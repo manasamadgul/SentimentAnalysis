@@ -15,7 +15,9 @@ A microservice-based sentiment analysis system using C# API Gateway and Python M
 
 ### C# Gateway API
 1. Navigate to CSharpGateway/
-2. Run:dotnet restore dotnet run
+2. Run:
+    dotnet restore 
+    dotnet run
 
 3. Access Swagger UI: http://localhost:5067/swagger
 
