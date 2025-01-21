@@ -2,6 +2,42 @@
 
 A microservice-based sentiment analysis system using C# API Gateway and Python ML Service.
 
+# Sentiment Analysis System
+
+## Project Overview
+- Full-stack ML system using C# and Python
+- Real-time sentiment analysis using transformers
+- RESTful API architecture
+
+## Technical Stack
+- C# .NET Core API Gateway
+- Python FastAPI ML Service
+- Hugging Face Transformers
+- REST API Integration
+
+## Key Features
+- Microservices architecture
+- Cross-language service integration
+- ML model deployment
+- Error handling and validation
+
+
+Key Components:
+1. Client Layer
+   - Sends text for analysis
+   - Receives sentiment results
+
+2. C# Gateway
+   - Handles authentication
+   - Validates requests
+   - Routes to ML service
+
+3. Python Service
+   - Processes text
+   - Runs ML model
+   - Returns predictions
+
+
 ## Project Structure
 - `CSharpGateway/` - .NET API Gateway
 - `PythonMLService/` - FastAPI ML Service
