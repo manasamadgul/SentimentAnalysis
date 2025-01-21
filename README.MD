@@ -22,7 +22,7 @@ A microservice-based sentiment analysis system using C# API Gateway and Python M
 - Error handling and validation
 
 
-Key Components:
+## Key Components:
 1. Client Layer
    - Sends text for analysis
    - Receives sentiment results
