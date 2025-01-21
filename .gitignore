@@ -1,0 +1,13 @@
+ # .NET
+bin/
+obj/
+*.user
+
+# Python
+__pycache__/
+venv/
+*.pyc
+
+# IDE
+.vs/
+.vscode/
