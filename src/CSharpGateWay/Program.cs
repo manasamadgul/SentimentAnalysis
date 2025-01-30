@@ -30,6 +30,8 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
+app.MapGet("/health", () => Results.Ok(new { status = "healthy" }));
+
 app.MapPost("/sentiment", async (ISentimentService sentimentService, SentimentRequest request)=>
 {
     try

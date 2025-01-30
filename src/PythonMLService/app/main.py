@@ -13,6 +13,10 @@ class SentimentResponse(BaseModel):
     sentiment:str
     score:float
     
+@app.get("/health")
+async def health_check():
+    return {"status": "healthy"}
+    
 @app.post("/analyze", response_model=SentimentResponse)
 async def analyze_sentiment(request: SentimentRequest):
     try:

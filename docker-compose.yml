@@ -1,0 +1,19 @@
+services:
+  sentiment-service:
+    image: 4jn99ec026/sentiment-analysis:TAG
+    ports:
+      - "8000:8000"
+    networks:
+      - sentiment-network
+
+  csharp-gateway:
+    image: 4jn99ec026/csharp-gateway:v1
+    ports:
+      - "8080:8080"
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+    networks:
+      - sentiment-network
+
+networks:
+  sentiment-network:
